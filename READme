@@ -1,0 +1,12 @@
+------------CAO Semester Project----------------
+
+This is a Water level monitoring system. 
+The system alarms when the water level increases from a certain level.
+
+ESP-32, LED lights, buzzer and Ultra-sonic sensor were used in this project.
+
+A green light turns on when the bucket is empty i.e when the water level is low. 
+A red light turns on along with the buzzer when the water crosses a certain height.
+
+USE: 
+  This can be helpful in common household to alram the residents when the water tank is either about to go empty or when the water tank is about to overflow.
