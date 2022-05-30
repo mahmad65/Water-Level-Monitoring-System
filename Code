@@ -1,0 +1,33 @@
+int trig=4; //Pin 4 is connected to the trigger - Sensor (Output)
+int echo=32; //Pin 32 is connected to the Echo - Sensor (Input)
+int buzz=14; //Pin 14 is connected to the Buzzer (Output)
+int led1=26; //Pin 26 is connected to the LED (Output)
+int led2=27; //Pin 27 is connected to the LED (Output)
+void setup(){
+  Serial.begin(9600);
+  pinMode(trig,OUTPUT);
+  pinMode(led1,OUTPUT);
+  pinMode(led2,OUTPUT);
+  pinMode(buzz,OUTPUT);
+  pinMode(echo,INPUT);
+}
+void loop(){
+  digitalWrite(trig,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig,LOW);
+  long duration = pulseIn(echo, HIGH);
+  int distance = (duration * 0.034)/2;
+  if(distance<=7){                  //Green light turns on when the bucket is empty
+    Serial.println(distance);
+    digitalWrite(buzz,HIGH);
+    digitalWrite(led1,HIGH);
+     digitalWrite(led2,LOW);
+  }
+  else if(distance>=9){                 //Red light turns & the buzzer goes off on when the bucket is about to overflow
+        digitalWrite(led2,HIGH);
+    digitalWrite(buzz,LOW);
+    digitalWrite(led1,LOW);
+   
+  }
+  Serial.println(distance);
+}
